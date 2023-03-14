@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Specific Section of a Webpage using JS</title>
+<!-------------Script--------->
+<script>
+    function printDiv() 
+{
+  var divToPrint=document.getElementById('DivIdToPrint');
+  var newWin=window.open('','Print-Window');
+  newWin.document.open();
+  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+  newWin.document.close();
+  setTimeout(function(){newWin.close();},10);
+}
+</script>
+<!-------------Script END --------->
+</head>
+<body>
+    <section>
+      <h2>This Will Not Be Printed</h2>
+      <p>Coal is a valuable hard, black material extracted from mines. Wood that has been buried for a long time
+         becomes coal due to a chemical change. Earthquakes cause vast forest areas to sink underground and contribute to such chan
+         ges as a result of tremendous heat and pressure. Coal mines can be found in our country at  Dhanbad, Jharia, Giridih, Chaibasa,
+          and other locations. Coal is exported from India to Japan, Nepal, and Bangladesh. Coal 
+          is used as a fuel in both homes and factories and industries. The majority of trains and steamers
+           move by burning coal in steam engines.</p>
+  
+        <div id='DivIdToPrint'>
+        <h2>This Will Be Printed</h2>
+        <p>Plastic is a non-biodegradable material. It does not mix with soil and reduces soil fertility. 
+            It cannot be automatically recycled and harms the Earth’s life cycle. However, plastic is replacing the traditional use of jute, 
+            cotton or paper materials and is becoming a threat to the living world. Children run the risk of suffocation when playing with plastic bags. 
+            Coloured plastic carry-bags cause food poisoning. Plastic waste, if not disposed of carefully, often clogs sewage systems.</p>
+      </div>
+    </section>
+  
+    <input type='button' id='btn' value='Print' onclick='printDiv();'>
+  </div>
+</body>
+</html>
+
+<!--------------code by github@iamhariombr---------->
